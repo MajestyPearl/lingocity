@@ -1,0 +1,485 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #29313d;
+}
+
+.tasks-page {
+    min-height: 100vh;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+    height: 72px;
+
+    background: white;
+
+    border-bottom: 1px solid #e7eaf0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 35px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+}
+
+.back-button {
+    text-decoration: none;
+
+    color: #606878;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #f0f2f7;
+    color: #333;
+}
+
+.page-title {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.student-stats {
+    margin-left: auto;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.student-stats span {
+    background: #f5f6fa;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+.student-stats strong {
+    font-weight: 800;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    width: min(950px, calc(100% - 30px));
+
+    margin: 0 auto;
+
+    padding: 40px 0 70px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.page-intro {
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 28px 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    box-shadow: 0 8px 30px rgba(30, 40, 70, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.intro-icon {
+    width: 65px;
+    height: 65px;
+
+    background: #f0efff;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.page-intro h1 {
+    font-size: 30px;
+
+    margin-bottom: 7px;
+}
+
+.page-intro p {
+    color: #7b8392;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    border: none;
+
+    background: white;
+
+    color: #697181;
+
+    padding: 10px 17px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.filter-button:hover {
+    background: #eeeefd;
+}
+
+.filter-button.active {
+    background: #7467f7;
+
+    color: white;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+.tasks-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =========================
+   TASK CARD
+========================= */
+
+.task-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border: 1px solid #edf0f5;
+
+    box-shadow: 0 7px 25px rgba(30, 40, 70, 0.05);
+
+    transition: 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 30px rgba(30, 40, 70, 0.08);
+}
+
+
+/* Icon */
+
+.task-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    background: #f0efff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+
+/* Information */
+
+.task-info {
+    flex: 1;
+}
+
+.task-subject {
+    color: #7467f7;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+.task-title {
+    font-size: 19px;
+
+    font-weight: 800;
+
+    margin-bottom: 6px;
+}
+
+.task-description {
+    color: #7d8492;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+
+    margin-bottom: 10px;
+}
+
+.task-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    color: #8b92a0;
+
+    font-size: 12px;
+}
+
+
+/* Button */
+
+.start-button {
+    flex-shrink: 0;
+
+    border: none;
+
+    background: #7467f7;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.start-button:hover {
+    background: #6559e7;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 65px 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 30px rgba(30, 40, 70, 0.05);
+
+    display: none;
+}
+
+.empty-state.visible {
+    display: block;
+}
+
+.empty-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+.empty-state h2 {
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #858c9b;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   COMPLETED TASK
+========================= */
+
+.task-card.completed {
+    opacity: 0.7;
+}
+
+.task-card.completed .start-button {
+    background: #e7e9ee;
+
+    color: #687080;
+
+    cursor: default;
+}
+
+.completed-label {
+    display: inline-block;
+
+    background: #edf8f0;
+
+    color: #4b9b61;
+
+    padding: 5px 9px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-left: 7px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .page-title {
+        display: none;
+    }
+
+    .student-stats {
+        gap: 5px;
+    }
+
+    .student-stats span {
+        padding: 7px 8px;
+
+        font-size: 12px;
+    }
+
+    .content {
+        width: calc(100% - 20px);
+
+        padding-top: 25px;
+    }
+
+    .page-intro {
+        padding: 22px;
+
+        align-items: flex-start;
+    }
+
+    .intro-icon {
+        width: 52px;
+        height: 52px;
+
+        font-size: 25px;
+    }
+
+    .page-intro h1 {
+        font-size: 24px;
+    }
+
+    .filters {
+        overflow-x: auto;
+    }
+
+    .filter-button {
+        white-space: nowrap;
+    }
+
+    .task-card {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .task-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .start-button {
+        width: 100%;
+    }
+}

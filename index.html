@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LingoCity</title>
+
+    <link
+        rel="stylesheet"
+        href="css/main.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="game">
+
+
+    <!-- =================================================
+         КАРТА ГОРОДА
+    ================================================== -->
+
+    <img
+        src="city.png"
+        class="city"
+        alt="LingoCity"
+    >
+
+
+    <!-- =================================================
+         ЗДАНИЯ ГОРОДА
+    ================================================== -->
+
+
+    <!-- ШКОЛА -->
+
+    <a
+        href="school/school.html"
+        class="building-zone school-zone"
+        data-unlock-level="1"
+        title="Школа"
+    >
+    </a>
+
+
+    <!-- МАГАЗИН -->
+
+    <div
+        class="building-zone locked shop-zone"
+        data-unlock-level="5"
+        title="Магазин"
+    >
+
+        <div class="lock-overlay">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <div class="lock-text">
+                Рівень 5
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- БОЛЬНИЦА -->
+
+    <div
+        class="building-zone locked hospital-zone"
+        data-unlock-level="10"
+        title="Лікарня"
+    >
+
+        <div class="lock-overlay">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <div class="lock-text">
+                Рівень 10
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ПОЛИЦИЯ -->
+
+    <div
+        class="building-zone locked police-zone"
+        data-unlock-level="15"
+        title="Поліція"
+    >
+
+        <div class="lock-overlay">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <div class="lock-text">
+                Рівень 15
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ПОЖАРНАЯ СТАНЦИЯ -->
+
+    <div
+        class="building-zone locked fire-zone"
+        data-unlock-level="20"
+        title="Пожежна станція"
+    >
+
+        <div class="lock-overlay">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <div class="lock-text">
+                Рівень 20
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- АЭРОПОРТ -->
+
+    <div
+        class="building-zone locked airport-zone"
+        data-unlock-level="25"
+        title="Аеропорт"
+    >
+
+        <div class="lock-overlay">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <div class="lock-text">
+                Рівень 25
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         ВЕРХНЯЯ ПАНЕЛЬ
+    ================================================== -->
+
+    <div class="top-bar">
+
+
+        <!-- LEVEL -->
+
+        <div class="info level">
+
+            🏅 Рівень
+            <span id="player-level">1</span>
+
+        </div>
+
+
+        <!-- COINS -->
+
+        <div class="info">
+
+            🪙
+            <span id="player-coins">500</span>
+
+        </div>
+
+
+        <!-- XP -->
+
+        <div class="info">
+
+            ⚡
+            <span id="player-xp">0</span>
+
+        </div>
+
+
+        <!-- HEARTS -->
+
+        <div class="info">
+
+            ❤️
+            <span id="player-hearts">5</span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         ЛЕВОЕ МЕНЮ
+    ================================================== -->
+
+    <div class="menu">
+
+
+        <!-- ЗАВДАННЯ -->
+
+        <a
+            href="tasks/tasks.html"
+            class="menu-zone"
+            title="Завдання"
+        >
+
+            <span class="menu-icon">
+                📋
+            </span>
+
+            <span>
+                Завдання
+            </span>
+
+        </a>
+
+
+        <!-- РЮКЗАК -->
+
+        <a
+            href="backpack/backpack.html"
+            class="menu-zone"
+            title="Рюкзак"
+        >
+
+            <span class="menu-icon">
+                🎒
+            </span>
+
+            <span>
+                Рюкзак
+            </span>
+
+        </a>
+
+
+        <!-- КАРТА -->
+
+        <a
+            href="index.html"
+            class="menu-zone"
+            title="Карта"
+        >
+
+            <span class="menu-icon">
+                🗺️
+            </span>
+
+            <span>
+                Карта
+            </span>
+
+        </a>
+
+
+        <!-- ДРУЗІ -->
+
+        <a
+            href="friends/friends.html"
+            class="menu-zone"
+            title="Друзі"
+        >
+
+            <span class="menu-icon">
+                👥
+            </span>
+
+            <span>
+                Друзі
+            </span>
+
+        </a>
+
+
+        <!-- ДОСЯГНЕННЯ -->
+
+        <a
+            href="achievements/achievements.html"
+            class="menu-zone"
+            title="Досягнення"
+        >
+
+            <span class="menu-icon">
+                🏆
+            </span>
+
+            <span>
+                Досягнення
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         КНОПКА ТЕКУЩЕГО УРОВНЯ
+    ================================================== -->
+
+    <button
+        class="quest"
+        id="quest-button"
+        type="button"
+    >
+
+        Рівень 1 ▶
+
+    </button>
+
+
+
+    <!-- =================================================
+         PROGRESS SYSTEM
+    ================================================== -->
+
+    <script src="progress.js"></script>
+
+
+    <script>
+
+
+        /* ===============================================
+           ПОЛУЧАЕМ ПРОГРЕСС
+        =============================================== */
+
+        const progress = getProgress();
+
+
+
+        /* ===============================================
+           ОБНОВЛЯЕМ ВЕРХНЮЮ ПАНЕЛЬ
+        =============================================== */
+
+        document.getElementById(
+            "player-level"
+        ).textContent = progress.level;
+
+
+        document.getElementById(
+            "player-coins"
+        ).textContent = progress.coins;
+
+
+        document.getElementById(
+            "player-xp"
+        ).textContent = progress.xp;
+
+
+        document.getElementById(
+            "player-hearts"
+        ).textContent = progress.hearts;
+
+
+
+        /* ===============================================
+           КНОПКА УРОВНЯ
+        =============================================== */
+
+        const questButton =
+            document.getElementById(
+                "quest-button"
+            );
+
+
+        questButton.textContent =
+            `Рівень ${progress.level} ▶`;
+
+
+        questButton.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    `school/levels/level${progress.level}.html`;
+
+            }
+        );
+
+
+
+        /* ===============================================
+           РАЗБЛОКИРОВКА ЗДАНИЙ
+        =============================================== */
+
+        const buildings =
+            document.querySelectorAll(
+                ".building-zone"
+            );
+
+
+        buildings.forEach(
+            function (building) {
+
+                const requiredLevel =
+                    Number(
+                        building.dataset.unlockLevel
+                    );
+
+
+                /* ======================================
+                   ЗДАНИЕ ОТКРЫТО
+                ====================================== */
+
+                if (
+                    progress.level >= requiredLevel
+                ) {
+
+                    building.classList.remove(
+                        "locked"
+                    );
+
+                    building.classList.add(
+                        "unlocked"
+                    );
+
+
+                    const overlay =
+                        building.querySelector(
+                            ".lock-overlay"
+                        );
+
+
+                    if (overlay) {
+
+                        overlay.remove();
+
+                    }
+
+
+                    /*
+                       Если это не школа,
+                       можно нажать на здание.
+                    */
+
+                    if (
+                        !building.matches("a")
+                    ) {
+
+                        building.addEventListener(
+                            "click",
+                            function () {
+
+                                alert(
+                                    "🏙️ Ця локація вже відкрита!"
+                                );
+
+                            }
+                        );
+
+                    }
+
+                }
+
+
+                /* ======================================
+                   ЗДАНИЕ ЗАКРЫТО
+                ====================================== */
+
+                else {
+
+                    building.addEventListener(
+                        "click",
+                        function () {
+
+                            const remaining =
+                                requiredLevel -
+                                progress.level;
+
+
+                            alert(
+                                `🔒 Локація ще закрита!\n\n` +
+                                `Вона відкриється на ` +
+                                `${requiredLevel} рівні.\n\n` +
+                                `Залишилось рівнів: ${remaining}`
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</div>
+
+</body>
+
+</html>

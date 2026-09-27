@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoCity — Кабінет учителя</title>
+
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+
+<div class="teacher-page">
+
+    <!-- Верхняя панель -->
+    <header class="top-bar">
+
+        <a href="../index.html" class="back-button">
+            ← LingoCity
+        </a>
+
+        <div class="teacher-title">
+            👩‍🏫 Кабінет учителя
+        </div>
+
+    </header>
+
+
+    <!-- Основной контент -->
+    <main class="content">
+
+        <section class="welcome">
+
+            <div>
+                <p class="small-title">Вітаємо!</p>
+
+                <h1>
+                    Керуйте навчанням учнів
+                </h1>
+
+                <p class="description">
+                    Створюйте завдання та тести,
+                    а також переглядайте прогрес учнів.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Статистика -->
+        <section class="statistics">
+
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+
+                <div>
+                    <div class="stat-number" id="tasks-count">
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Завдань
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+
+                <div>
+                    <div class="stat-number">
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        Учнів
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+
+                <div>
+                    <div class="stat-number">
+                        0%
+                    </div>
+
+                    <div class="stat-label">
+                        Середній прогрес
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Добавить задание -->
+        <section class="create-section">
+
+            <button
+                class="add-task-button"
+                id="add-task-button"
+                type="button"
+            >
+                <span>＋</span>
+                Додати завдання
+            </button>
+
+        </section>
+
+
+        <!-- Список заданий -->
+        <section class="tasks-section">
+
+            <div class="section-header">
+
+                <h2>
+                    Останні завдання
+                </h2>
+
+            </div>
+
+
+            <div id="tasks-list" class="tasks-list">
+
+                <!-- Завдання будуть додаватися через JavaScript -->
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Поки немає завдань
+                    </h3>
+
+                    <p>
+                        Створіть перше завдання для своїх учнів.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Модальное окно -->
+    <div
+        class="modal-overlay"
+        id="task-modal"
+    >
+
+        <div class="modal">
+
+            <button
+                class="close-button"
+                id="close-modal"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-header">
+
+                <div class="modal-icon">
+                    ✨
+                </div>
+
+                <div>
+
+                    <h2>
+                        Нове завдання
+                    </h2>
+
+                    <p>
+                        Створіть завдання для своїх учнів
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="task-form">
+
+                <label>
+                    Назва
+
+                    <input
+                        type="text"
+                        id="task-title"
+                        placeholder="Наприклад: Basic Greetings"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Предмет
+
+                    <select id="task-subject">
+
+                        <option value="English">
+                            English
+                        </option>
+
+                        <option value="Math">
+                            Math
+                        </option>
+
+                        <option value="Ukrainian">
+                            Українська мова
+                        </option>
+
+                        <option value="History">
+                            Історія
+                        </option>
+
+                        <option value="Science">
+                            Science
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Тип
+
+                    <select id="task-type">
+
+                        <option value="assignment">
+                            📋 Завдання
+                        </option>
+
+                        <option value="test">
+                            📝 Тест
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Опис
+
+                    <textarea
+                        id="task-description"
+                        placeholder="Напишіть короткий опис завдання..."
+                        rows="4"
+                    ></textarea>
+
+                </label>
+
+
+                <div class="form-row">
+
+                    <label>
+                        Клас
+
+                        <select id="task-class">
+
+                            <option value="5">
+                                5 клас
+                            </option>
+
+                            <option value="6">
+                                6 клас
+                            </option>
+
+                            <option value="7">
+                                7 клас
+                            </option>
+
+                            <option value="8">
+                                8 клас
+                            </option>
+
+                            <option value="9">
+                                9 клас
+                            </option>
+
+                            <option value="10">
+                                10 клас
+                            </option>
+
+                            <option value="11">
+                                11 клас
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+                    <label>
+                        Нагорода
+
+                        <input
+                            type="number"
+                            id="task-xp"
+                            value="100"
+                            min="0"
+                            max="1000"
+                        >
+
+                    </label>
+
+                </div>
+
+
+                <label>
+                    Дедлайн
+
+                    <input
+                        type="date"
+                        id="task-deadline"
+                    >
+
+                </label>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancel-button"
+                    >
+                        Скасувати
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="create-button"
+                    >
+                        Створити
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="teacher.js"></script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Level 2 — Numbers & Basics | LingoCity</title>
+
+    <link rel="stylesheet" href="level2.css">
+</head>
+
+<body>
+
+    <div class="game-page">
+
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+
+        <header class="top-bar">
+
+            <a
+                href="../school.html"
+                class="back-button"
+            >
+                ← Школа
+            </a>
+
+            <div class="level-title">
+
+                <div class="level-icon">
+                    🏫
+                </div>
+
+                <div>
+                    <h1>Level 2</h1>
+                    <p>Numbers & Basics</p>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+
+        <main class="level-container">
+
+            <!-- ПРОГРЕСС -->
+
+            <div class="progress-info">
+
+                <span id="question-number">
+                    Питання 1 з 5
+                </span>
+
+                <span
+                    id="progress-percent"
+                    class="progress-percent"
+                >
+                    20%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progress-fill"
+                ></div>
+
+            </div>
+
+
+            <!-- КАРТОЧКА -->
+
+            <section
+                class="question-card"
+                id="question-card"
+            >
+
+                <div class="question-icon">
+                    🔢
+                </div>
+
+
+                <div class="question-category">
+                    NUMBERS & BASICS
+                </div>
+
+
+                <h1
+                    class="question"
+                    id="question"
+                >
+                    Як англійською буде «один»?
+                </h1>
+
+
+                <p
+                    class="hint"
+                    id="hint"
+                >
+                    Це перше число
+                </p>
+
+
+                <!-- ОТВЕТЫ -->
+
+                <div
+                    class="answers"
+                    id="answers"
+                >
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="One"
+                    >
+                        One
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Two"
+                    >
+                        Two
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Three"
+                    >
+                        Three
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Four"
+                    >
+                        Four
+                    </button>
+
+                </div>
+
+
+                <!-- ОБРАТНАЯ СВЯЗЬ -->
+
+                <div
+                    class="feedback"
+                    id="feedback"
+                ></div>
+
+
+                <!-- ДАЛЬШЕ -->
+
+                <button
+                    type="button"
+                    class="next-button"
+                    id="next-button"
+                    disabled
+                >
+                    Далі →
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- ЭКРАН ЗАВЕРШЕНИЯ -->
+
+        <section
+            class="result-screen"
+            id="result-screen"
+        >
+
+            <div class="result-card">
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+
+                <h2>
+                    Level Complete!
+                </h2>
+
+
+                <p>
+                    Ти пройшла другий рівень!
+                </p>
+
+
+                <!-- НАГРАДЫ -->
+
+                <div class="result-stats">
+
+                    <div class="result-stat">
+
+                        <strong id="final-xp">
+                            +100
+                        </strong>
+
+                        <span>
+                            XP
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-stat">
+
+                        <strong id="final-coins">
+                            +50
+                        </strong>
+
+                        <span>
+                            монет
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-stat">
+
+                        <strong id="final-correct">
+                            5/5
+                        </strong>
+
+                        <span>
+                            правильних
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="unlock-message">
+                    🔓 Наступний рівень відкрито!
+                </p>
+
+
+                <!-- КНОПКИ -->
+
+                <div class="result-buttons">
+
+                    <button
+                        type="button"
+                        class="retry-button"
+                        onclick="restartGame()"
+                    >
+                        🔄 Ще раз
+                    </button>
+
+
+                    <a
+                        href="../school.html"
+                        class="school-button"
+                    >
+                        🏫 До школи
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../../progress.js"></script>
+    <script src="level2.js"></script>
+
+</body>
+
+</html>

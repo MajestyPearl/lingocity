@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LingoCity — Завдання</title>
+
+    <link rel="stylesheet" href="tasks.css">
+</head>
+
+<body>
+
+<div class="tasks-page">
+
+    <!-- Верхняя панель -->
+    <header class="top-bar">
+
+        <a href="../index.html" class="back-button">
+            ← Карта
+        </a>
+
+        <div class="page-title">
+            📋 Завдання
+        </div>
+
+        <div class="student-stats">
+
+            <span>
+                🏅 <strong id="player-level">1</strong>
+            </span>
+
+            <span>
+                🪙 <strong id="player-coins">500</strong>
+            </span>
+
+            <span>
+                ⚡ <strong id="player-xp">0</strong>
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- Основной контент -->
+    <main class="content">
+
+        <section class="page-intro">
+
+            <div class="intro-icon">
+                📚
+            </div>
+
+            <div>
+
+                <h1>
+                    Мої завдання
+                </h1>
+
+                <p>
+                    Виконуй завдання від своїх учителів
+                    та отримуй XP.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Фильтры -->
+        <div class="filters">
+
+            <button
+                class="filter-button active"
+                data-filter="all"
+                type="button"
+            >
+                Усі
+            </button>
+
+            <button
+                class="filter-button"
+                data-filter="assignment"
+                type="button"
+            >
+                📋 Завдання
+            </button>
+
+            <button
+                class="filter-button"
+                data-filter="test"
+                type="button"
+            >
+                📝 Тести
+            </button>
+
+        </div>
+
+
+        <!-- Список -->
+        <section
+            id="tasks-list"
+            class="tasks-list"
+        >
+
+            <!-- Завдання додаються через JavaScript -->
+
+        </section>
+
+
+        <!-- Пустое состояние -->
+        <section
+            id="empty-state"
+            class="empty-state"
+        >
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h2>
+                Поки немає завдань
+            </h2>
+
+            <p>
+                Ваш учитель ще не додав нових завдань.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../progress.js"></script>
+<script src="tasks.js"></script>
+
+</body>
+</html>

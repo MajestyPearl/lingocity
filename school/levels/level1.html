@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Level 1 — First Steps | LingoCity</title>
+
+    <link rel="stylesheet" href="level1.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         LEVEL 1 PAGE
+    ========================================== -->
+
+    <div class="game-page">
+
+
+        <!-- =====================================
+             TOP BAR
+        ====================================== -->
+
+        <header class="top-bar">
+
+            <a href="../school.html" class="back-button">
+                ← Школа
+            </a>
+
+
+            <div class="level-title">
+
+                <div class="level-icon">
+                    🏫
+                </div>
+
+                <div>
+                    <h1>Level 1</h1>
+                    <p>First Steps</p>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="level-container">
+
+
+            <!-- =================================
+                 PROGRESS
+            ================================== -->
+
+            <div class="progress-info">
+
+                <span id="question-number">
+                    Питання 1 з 5
+                </span>
+
+                <span
+                    id="progress-percent"
+                    class="progress-percent"
+                >
+                    20%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progress-fill"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 QUESTION CARD
+            ================================== -->
+
+            <section
+                class="question-card"
+                id="question-card"
+            >
+
+
+                <!-- ICON -->
+
+                <div class="question-icon">
+                    💡
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+                <div class="question-category">
+                    FIRST STEPS
+                </div>
+
+
+
+                <!-- QUESTION -->
+
+                <h1
+                    class="question"
+                    id="question"
+                >
+                    Як англійською буде «Привіт»?
+                </h1>
+
+
+
+                <!-- HINT -->
+
+                <p
+                    class="hint"
+                    id="hint"
+                >
+                    Базове привітання
+                </p>
+
+
+
+                <!-- =================================
+                     ANSWERS
+                ================================== -->
+
+                <div
+                    class="answers"
+                    id="answers"
+                >
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Hello"
+                    >
+                        Hello
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Goodbye"
+                    >
+                        Goodbye
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Thanks"
+                    >
+                        Thanks
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="answer-button"
+                        data-answer="Sorry"
+                    >
+                        Sorry
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================
+                     FEEDBACK
+                ================================== -->
+
+                <div
+                    class="feedback"
+                    id="feedback"
+                ></div>
+
+
+
+                <!-- =================================
+                     NEXT BUTTON
+                ================================== -->
+
+                <button
+                    type="button"
+                    class="next-button"
+                    id="next-button"
+                    disabled
+                >
+                    Далі →
+                </button>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- =====================================
+             RESULT SCREEN
+        ====================================== -->
+
+        <section
+            class="result-screen"
+            id="result-screen"
+        >
+
+
+            <div class="result-card">
+
+
+                <!-- TROPHY -->
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+
+
+                <!-- TITLE -->
+
+                <h2>
+                    Level Complete!
+                </h2>
+
+
+
+                <p>
+                    Ти пройшла перший рівень!
+                </p>
+
+
+
+                <!-- =================================
+                     REWARDS
+                ================================== -->
+
+                <div class="result-stats">
+
+
+                    <div class="result-stat">
+
+                        <strong id="final-xp">
+                            +100
+                        </strong>
+
+                        <span>
+                            XP
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="result-stat">
+
+                        <strong id="final-coins">
+                            +50
+                        </strong>
+
+                        <span>
+                            монет
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="result-stat">
+
+                        <strong id="final-correct">
+                            5/5
+                        </strong>
+
+                        <span>
+                            правильних
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- UNLOCK MESSAGE -->
+
+                <p class="unlock-message">
+                    🔓 Наступний рівень відкрито!
+                </p>
+
+
+
+                <!-- =================================
+                     RESULT BUTTONS
+                ================================== -->
+
+                <div class="result-buttons">
+
+
+                    <button
+                        type="button"
+                        class="retry-button"
+                        onclick="restartGame()"
+                    >
+                        🔄 Ще раз
+                    </button>
+
+
+
+                    <a
+                        href="../school.html"
+                        class="school-button"
+                    >
+                        🏫 До школи
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="../../progress.js"></script>
+
+    <script src="level1.js"></script>
+
+
+</body>
+
+</html>

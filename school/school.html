@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LingoCity — School</title>
+
+
+    <style>
+
+        /* =====================================
+           RESET
+        ===================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #8bd8f5 0%,
+                    #dff6ff 100%
+                );
+
+            color: #17477d;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================
+           TOP
+        ===================================== */
+
+        .top-bar {
+
+            width: 100%;
+
+            min-height: 105px;
+
+            background: white;
+
+            border-bottom:
+                5px solid #075bb5;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                18px 30px;
+
+            gap: 25px;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        /* =====================================
+           BACK BUTTON
+        ===================================== */
+
+        .back-button {
+
+            width: 155px;
+
+            height: 62px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                4px solid #075bb5;
+
+            border-radius: 25px;
+
+            background: white;
+
+            color: #075bb5;
+
+            text-decoration: none;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+
+            background: #edf8ff;
+
+            transform: scale(1.03);
+        }
+
+
+        /* =====================================
+           TITLE
+        ===================================== */
+
+        .school-title {
+
+            flex: 1;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: #075bb5;
+        }
+
+
+        /* =====================================
+           STATS
+        ===================================== */
+
+        .stats {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+        .stat {
+
+            height: 56px;
+
+            min-width: 115px;
+
+            padding:
+                0 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            border:
+                4px solid #e2b500;
+
+            border-radius: 27px;
+
+            background: #fff8d9;
+
+            color: #6c5200;
+
+            font-size: 19px;
+
+            font-weight: bold;
+        }
+
+
+        .stat.level {
+
+            background: #fff2bd;
+        }
+
+
+        /* =====================================
+           MAIN
+        ===================================== */
+
+        .school-container {
+
+            width: 100%;
+
+            max-width: 1500px;
+
+            margin: 0 auto;
+
+            padding:
+                35px 45px 80px;
+        }
+
+
+        /* =====================================
+           WELCOME CARD
+        ===================================== */
+
+        .welcome {
+
+            width: 100%;
+
+            min-height: 155px;
+
+            background: white;
+
+            border:
+                4px solid #b9d9e8;
+
+            border-radius: 30px;
+
+            padding:
+                28px 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 40px;
+
+            box-shadow:
+                0 7px 0 rgba(30, 90, 130, 0.18);
+
+            margin-bottom: 35px;
+        }
+
+
+        .welcome-text {
+
+            flex: 1;
+        }
+
+
+        .welcome h1 {
+
+            font-size: 38px;
+
+            color: #17477d;
+
+            margin-bottom: 10px;
+        }
+
+
+        .welcome p {
+
+            font-size: 20px;
+
+            color: #66839a;
+        }
+
+
+        /* =====================================
+           PROGRESS
+        ===================================== */
+
+        .progress-box {
+
+            width: 420px;
+
+            flex-shrink: 0;
+        }
+
+
+        .progress-info {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            color: #496a80;
+        }
+
+
+        .progress-info strong {
+
+            color: #075bb5;
+
+            font-size: 22px;
+        }
+
+
+        .progress-bar {
+
+            width: 100%;
+
+            height: 24px;
+
+            background: #d9e7ee;
+
+            border:
+                2px solid #c2d8e4;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #42c900,
+                    #9cff37
+                );
+
+            border-radius: 20px;
+
+            transition:
+                width 0.5s ease;
+        }
+
+
+        /* =====================================
+           LEVEL TITLE
+        ===================================== */
+
+        .levels-title {
+
+            font-size: 32px;
+
+            margin-bottom: 22px;
+
+            color: #17477d;
+        }
+
+
+        /* =====================================
+           LEVEL GRID
+        ===================================== */
+
+        .levels-grid {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+
+        /* =====================================
+           LEVEL CARD
+        ===================================== */
+
+        .level-card {
+
+            width: 100%;
+
+            min-height: 145px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 20px;
+
+            text-decoration: none;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            border:
+                4px solid #c1dce9;
+
+            border-radius: 27px;
+
+            box-shadow:
+                0 6px 0 rgba(50, 100, 130, 0.18);
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s,
+                border-color 0.2s;
+        }
+
+
+        .level-card.unlocked {
+
+            cursor: pointer;
+        }
+
+
+        .level-card.unlocked:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                #1670c5;
+
+            box-shadow:
+                0 9px 0
+                rgba(0, 76, 140, 0.22);
+        }
+
+
+        /* =====================================
+           NUMBER
+        ===================================== */
+
+        .level-number {
+
+            width: 82px;
+
+            height: 82px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ffc928;
+
+            border:
+                4px solid #e0a800;
+
+            border-radius: 24px;
+
+            color: #17477d;
+
+            font-size: 34px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================
+           LEVEL CONTENT
+        ===================================== */
+
+        .level-content {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding:
+                0 20px;
+        }
+
+
+        .level-content h3 {
+
+            font-size: 25px;
+
+            color: #075bb5;
+
+            margin-bottom: 7px;
+        }
+
+
+        .level-content p {
+
+            font-size: 17px;
+
+            color: #71899a;
+
+            margin-bottom: 12px;
+        }
+
+
+        .level-reward {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: #45a51d;
+        }
+
+
+        /* =====================================
+           STATUS
+        ===================================== */
+
+        .level-status {
+
+            width: 48px;
+
+            height: 48px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #0b4fd1;
+
+            font-size: 28px;
+        }
+
+
+        /* =====================================
+           LOCKED
+        ===================================== */
+
+        .level-card.locked {
+
+            cursor: not-allowed;
+
+            background:
+                rgba(239, 247, 251, 0.85);
+
+            border-color:
+                #b7cbd5;
+
+            opacity: 0.75;
+        }
+
+
+        .level-card.locked .level-number {
+
+            background: #dce8ed;
+
+            border-color: #bfd0d7;
+
+            color: #718794;
+        }
+
+
+        .level-card.locked .level-content h3 {
+
+            color: #758994;
+        }
+
+
+        .level-card.locked .level-content p {
+
+            color: #91a3ad;
+        }
+
+
+        .level-card.locked .level-reward {
+
+            color: #8799a3;
+        }
+
+
+        .level-card.locked .level-status {
+
+            font-size: 22px;
+        }
+
+
+        /* =====================================
+           COMPLETED
+        ===================================== */
+
+        .level-card.completed {
+
+            background: #f7fff0;
+
+            border-color: #7acb42;
+        }
+
+
+        .level-card.completed .level-number {
+
+            background: #b8ef6d;
+
+            border-color: #5fb52d;
+
+            color: #236a16;
+        }
+
+
+        .level-card.completed .level-status {
+
+            color: #38a51e;
+
+            font-size: 34px;
+        }
+
+
+        /* =====================================
+           TABLET
+        ===================================== */
+
+        @media (max-width: 1100px) {
+
+            .top-bar {
+
+                height: auto;
+
+                min-height: 105px;
+
+                flex-wrap: wrap;
+            }
+
+
+            .school-title {
+
+                flex: 1;
+
+                min-width: 250px;
+            }
+
+
+            .stats {
+
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+
+            .welcome {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .progress-box {
+
+                width: 100%;
+            }
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 750px) {
+
+            .school-container {
+
+                padding:
+                    20px 15px 50px;
+            }
+
+
+            .levels-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .school-title {
+
+                font-size: 24px;
+            }
+
+
+            .welcome h1 {
+
+                font-size: 30px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .top-bar {
+
+                padding: 12px;
+
+                gap: 10px;
+            }
+
+
+            .back-button {
+
+                width: 120px;
+
+                height: 50px;
+
+                font-size: 17px;
+            }
+
+
+            .school-title {
+
+                font-size: 20px;
+            }
+
+
+            .stat {
+
+                height: 45px;
+
+                min-width: auto;
+
+                font-size: 15px;
+
+                padding:
+                    0 10px;
+            }
+
+
+            .school-container {
+
+                padding:
+                    15px 10px 40px;
+            }
+
+
+            .welcome {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .welcome h1 {
+
+                font-size: 26px;
+            }
+
+
+            .level-card {
+
+                min-height: 120px;
+
+                padding: 14px;
+            }
+
+
+            .level-number {
+
+                width: 65px;
+
+                height: 65px;
+
+                font-size: 27px;
+            }
+
+
+            .level-content {
+
+                padding:
+                    0 12px;
+            }
+
+
+            .level-content h3 {
+
+                font-size: 20px;
+            }
+
+
+            .level-content p {
+
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         TOP BAR
+    ====================================== -->
+
+    <header class="top-bar">
+
+        <a
+            href="../index.html"
+            class="back-button"
+        >
+            ← Місто
+        </a>
+
+
+        <div class="school-title">
+            🏫 LingoCity School
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat level">
+
+                🏅
+
+                <span id="current-level">
+                    Рівень 1 / 30
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                ⭐
+
+                <span id="school-xp">
+                    0
+                </span>
+
+                XP
+
+            </div>
+
+
+            <div class="stat">
+
+                🪙
+
+                <span id="school-coins">
+                    500
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                ❤️
+
+                <span id="school-hearts">
+                    5
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="school-container">
+
+
+        <!-- =====================================
+             WELCOME
+        ====================================== -->
+
+        <section class="welcome">
+
+
+            <div class="welcome-text">
+
+                <h1>
+                    📚 Школа LingoCity
+                </h1>
+
+                <p>
+                    Вивчай англійську та відкривай нові рівні!
+                </p>
+
+            </div>
+
+
+            <div class="progress-box">
+
+                <div class="progress-info">
+
+                    <span>
+                        Загальний прогрес
+                    </span>
+
+                    <strong id="progress-percent">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="school-progress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LEVELS
+        ====================================== -->
+
+        <h2 class="levels-title">
+            🎮 Рівні
+        </h2>
+
+
+        <section class="levels-grid">
+
+
+            <!-- =================================
+                 LEVEL 1
+            ================================== -->
+
+            <a
+                href="levels/level1.html"
+                class="level-card unlocked"
+                id="level-card-1"
+            >
+
+                <div class="level-number">
+                    1
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Перші кроки
+                    </h3>
+
+                    <p>
+                        Базові англійські слова
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-1"
+                >
+                    ▶
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 2
+            ================================== -->
+
+            <a
+                href="levels/level2.html"
+                class="level-card locked"
+                id="level-card-2"
+            >
+
+                <div class="level-number">
+                    2
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Numbers &amp; Basics
+                    </h3>
+
+                    <p>
+                        Числа та базові слова
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-2"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 3
+            ================================== -->
+
+            <a
+                href="levels/level3.html"
+                class="level-card locked"
+                id="level-card-3"
+            >
+
+                <div class="level-number">
+                    3
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Моє місто
+                    </h3>
+
+                    <p>
+                        Місця та будівлі
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-3"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 4
+            ================================== -->
+
+            <a
+                href="levels/level4.html"
+                class="level-card locked"
+                id="level-card-4"
+            >
+
+                <div class="level-number">
+                    4
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Люди
+                    </h3>
+
+                    <p>
+                        Люди та професії
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-4"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 5
+            ================================== -->
+
+            <a
+                href="levels/level5.html"
+                class="level-card locked"
+                id="level-card-5"
+            >
+
+                <div class="level-number">
+                    5
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Їжа
+                    </h3>
+
+                    <p>
+                        Food &amp; Drinks
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-5"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 6
+            ================================== -->
+
+            <a
+                href="levels/level6.html"
+                class="level-card locked"
+                id="level-card-6"
+            >
+
+                <div class="level-number">
+                    6
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Дім
+                    </h3>
+
+                    <p>
+                        My Home
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-6"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 7
+            ================================== -->
+
+            <a
+                href="levels/level7.html"
+                class="level-card locked"
+                id="level-card-7"
+            >
+
+                <div class="level-number">
+                    7
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Час
+                    </h3>
+
+                    <p>
+                        Days &amp; Time
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-7"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 8
+            ================================== -->
+
+            <a
+                href="levels/level8.html"
+                class="level-card locked"
+                id="level-card-8"
+            >
+
+                <div class="level-number">
+                    8
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Моя сім'я
+                    </h3>
+
+                    <p>
+                        Family
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-8"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 9
+            ================================== -->
+
+            <a
+                href="levels/level9.html"
+                class="level-card locked"
+                id="level-card-9"
+            >
+
+                <div class="level-number">
+                    9
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Хобі
+                    </h3>
+
+                    <p>
+                        Hobbies
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-9"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+
+            <!-- =================================
+                 LEVEL 10
+            ================================== -->
+
+            <a
+                href="levels/level10.html"
+                class="level-card locked"
+                id="level-card-10"
+            >
+
+                <div class="level-number">
+                    10
+                </div>
+
+
+                <div class="level-content">
+
+                    <h3>
+                        Подорож
+                    </h3>
+
+                    <p>
+                        Travel
+                    </p>
+
+                    <span class="level-reward">
+                        ⭐ +100 XP &nbsp;&nbsp; 🪙 +50
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="level-status"
+                    id="level-status-10"
+                >
+                    🔒
+                </div>
+
+            </a>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         PROGRESS SYSTEM
+    ====================================== -->
+
+    <script src="../progress.js"></script>
+
+
+    <script>
+
+        /* =====================================
+           GET CURRENT PROGRESS
+        ===================================== */
+
+        const progress = getProgress();
+
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        document.getElementById(
+            "current-level"
+        ).textContent =
+            `Рівень ${progress.level} / 30`;
+
+
+        document.getElementById(
+            "school-xp"
+        ).textContent =
+            progress.xp;
+
+
+        document.getElementById(
+            "school-coins"
+        ).textContent =
+            progress.coins;
+
+
+        document.getElementById(
+            "school-hearts"
+        ).textContent =
+            progress.hearts;
+
+
+
+        /* =====================================
+           TOTAL PROGRESS
+        ===================================== */
+
+        const percent =
+            getProgressPercent();
+
+
+        document.getElementById(
+            "school-progress"
+        ).style.width =
+            `${percent}%`;
+
+
+        document.getElementById(
+            "progress-percent"
+        ).textContent =
+            `${percent}%`;
+
+
+
+        /* =====================================
+           LEVELS
+        ===================================== */
+
+        for (
+            let level = 1;
+            level <= 10;
+            level++
+        ) {
+
+            const card =
+                document.getElementById(
+                    `level-card-${level}`
+                );
+
+
+            const status =
+                document.getElementById(
+                    `level-status-${level}`
+                );
+
+
+            if (!card) {
+                continue;
+            }
+
+
+
+            /* =================================
+               COMPLETED
+            ================================== */
+
+            if (
+                isLevelCompleted(level)
+            ) {
+
+                card.classList.remove(
+                    "locked"
+                );
+
+
+                card.classList.add(
+                    "unlocked"
+                );
+
+
+                card.classList.add(
+                    "completed"
+                );
+
+
+                if (status) {
+
+                    status.textContent =
+                        "✓";
+
+                }
+
+            }
+
+
+
+            /* =================================
+               UNLOCKED
+            ================================== */
+
+            else if (
+                isLevelUnlocked(level)
+            ) {
+
+                card.classList.remove(
+                    "locked"
+                );
+
+
+                card.classList.add(
+                    "unlocked"
+                );
+
+
+                if (status) {
+
+                    status.textContent =
+                        "▶";
+
+                }
+
+            }
+
+
+
+            /* =================================
+               LOCKED
+            ================================== */
+
+            else {
+
+                card.classList.add(
+                    "locked"
+                );
+
+
+                card.classList.remove(
+                    "unlocked"
+                );
+
+
+                if (status) {
+
+                    status.textContent =
+                        "🔒";
+
+                }
+
+
+                /*
+                   Не даём перейти на закрытый уровень.
+                */
+
+                card.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+
+                        alert(
+                            `🔒 Спочатку пройди рівень ${level - 1}!`
+                        );
+
+                    }
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

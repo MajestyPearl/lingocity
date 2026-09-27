@@ -1,0 +1,623 @@
+/* =========================================
+   LingoCity SCHOOL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #8ed8f5 0%,
+        #dff7ff 100%
+    );
+    color: #173f70;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar {
+    width: 100%;
+    min-height: 110px;
+
+    background: #ffffff;
+
+    border-bottom: 5px solid #075bb5;
+
+    display: flex;
+    align-items: center;
+
+    padding: 18px 30px;
+
+    gap: 25px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+
+/* BACK BUTTON */
+
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 155px;
+    height: 62px;
+
+    background: #ffffff;
+
+    border: 4px solid #075bb5;
+    border-radius: 25px;
+
+    color: #075bb5;
+
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    transform: scale(1.04);
+    background: #edf8ff;
+}
+
+
+/* TITLE */
+
+.school-title {
+    flex: 1;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    color: #075bb5;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* STATS */
+
+.stats {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.stat {
+    min-width: 115px;
+    height: 55px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #fff9df;
+
+    border: 4px solid #e6b800;
+
+    border-radius: 25px;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    color: #6d5200;
+
+    white-space: nowrap;
+}
+
+.stat.level {
+    background: #fff3bf;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.school-container {
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 35px 45px 70px;
+}
+
+
+/* =========================================
+   WELCOME
+========================================= */
+
+.welcome {
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 4px solid #b8d9e8;
+
+    border-radius: 30px;
+
+    padding: 30px 35px;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 7px 0 rgba(0, 76, 140, 0.18);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.welcome h1 {
+    font-size: 38px;
+
+    color: #17477d;
+
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 20px;
+
+    color: #67849c;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-box {
+    width: 420px;
+
+    flex-shrink: 0;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    color: #41657e;
+}
+
+.progress-info strong {
+    color: #075bb5;
+    font-size: 22px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 23px;
+
+    background: #d8e7f0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 2px solid #c3d8e5;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #43c900,
+        #9cff37
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* =========================================
+   LEVELS
+========================================= */
+
+.levels-section h2 {
+    font-size: 32px;
+
+    color: #17477d;
+
+    margin-bottom: 22px;
+}
+
+
+/* GRID */
+
+.levels-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   LEVEL CARD
+========================================= */
+
+.level-card {
+    min-height: 145px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 4px solid #c1dce9;
+
+    border-radius: 27px;
+
+    box-shadow:
+        0 6px 0 rgba(50, 100, 130, 0.18);
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    padding: 20px;
+
+    position: relative;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+
+/* OPEN */
+
+.level-card.unlocked {
+    cursor: pointer;
+}
+
+.level-card.unlocked:hover {
+    transform: translateY(-3px);
+
+    border-color: #1670c5;
+
+    box-shadow:
+        0 9px 0 rgba(0, 76, 140, 0.22);
+}
+
+
+/* COMPLETED */
+
+.level-card.completed {
+    background: #f8fff1;
+
+    border-color: #7acb42;
+}
+
+
+/* LOCKED */
+
+.level-card.locked {
+    cursor: not-allowed;
+
+    background: rgba(238, 246, 250, 0.82);
+
+    border-color: #b7cbd5;
+
+    filter: saturate(0.35);
+
+    opacity: 0.78;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.level-number {
+    width: 82px;
+    height: 82px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffc928;
+
+    border: 4px solid #e1a800;
+
+    border-radius: 24px;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    color: #17477d;
+}
+
+
+/* LOCKED NUMBER */
+
+.level-card.locked .level-number {
+    background: #dce8ed;
+
+    border-color: #c0d0d7;
+
+    color: #718794;
+}
+
+
+/* COMPLETED NUMBER */
+
+.level-card.completed .level-number {
+    background: #b8ef6d;
+
+    border-color: #5fb52d;
+
+    color: #236a16;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.level-content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 0 20px;
+}
+
+.level-content h3 {
+    font-size: 25px;
+
+    color: #075bb5;
+
+    margin-bottom: 7px;
+}
+
+.level-content p {
+    font-size: 17px;
+
+    color: #71899a;
+
+    margin-bottom: 13px;
+}
+
+
+/* LOCKED TEXT */
+
+.level-card.locked .level-content h3 {
+    color: #758994;
+}
+
+.level-card.locked .level-content p {
+    color: #91a3ad;
+}
+
+
+/* =========================================
+   REWARD
+========================================= */
+
+.level-reward {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: #45a51d;
+}
+
+.level-card.locked .level-reward {
+    color: #8799a3;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.level-status {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    color: #0b4fd1;
+}
+
+.level-card.completed .level-status {
+    color: #38a51e;
+
+    font-size: 34px;
+}
+
+.level-card.locked .level-status {
+    font-size: 22px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .top-bar {
+        flex-wrap: wrap;
+
+        padding: 15px 20px;
+    }
+
+    .school-title {
+        order: 2;
+
+        flex: 1;
+    }
+
+    .stats {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .welcome {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .progress-box {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .school-container {
+        padding: 25px 18px 50px;
+    }
+
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .school-title {
+        font-size: 24px;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .top-bar {
+        min-height: auto;
+
+        padding: 12px;
+
+        gap: 10px;
+    }
+
+    .back-button {
+        min-width: 120px;
+        height: 50px;
+
+        font-size: 17px;
+    }
+
+    .school-title {
+        font-size: 20px;
+    }
+
+    .stat {
+        min-width: auto;
+
+        height: 45px;
+
+        padding: 0 12px;
+
+        font-size: 16px;
+    }
+
+    .welcome {
+        padding: 22px;
+
+        border-radius: 22px;
+    }
+
+    .welcome h1 {
+        font-size: 27px;
+    }
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+    .level-card {
+        min-height: 125px;
+
+        padding: 14px;
+    }
+
+    .level-number {
+        width: 65px;
+        height: 65px;
+
+        border-radius: 18px;
+
+        font-size: 27px;
+    }
+
+    .level-content {
+        padding: 0 12px;
+    }
+
+    .level-content h3 {
+        font-size: 20px;
+    }
+
+    .level-content p {
+        font-size: 14px;
+    }
+
+}
